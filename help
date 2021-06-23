@@ -1,0 +1,24 @@
+Чтобы завести TensorRT в PyCharm надо:
+! В версии 8 какая-то ошибка была. Используй 7.2.3.4.
+
+1. Смотри в эту инструкцию: https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html
+Тебя интересует блок с установкой через whl
+
+2. Скачай нужную тебе версию TensorRT. Версию CUDA смотри nvcc --version.
+Если nvcc --version ничего не показывает иди в ./home/bashrc
+Смотри внизу должно быть что-то типа. Укажи путь до твоей CUDA.
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:/home/vid/tensorrt/TensorRT-8.0.0.3/lib:/usr/local/cuda-11/lib64:/home/vid/tensorrt/cuda10.2/TensorRT-7.2.3.4/lib:$LD_LIBRARY_PATH"
+
+Версия CuDNN - /usr/local/cuda-10.2/include/cuddn.version
+#define CUDNN_MAJOR 8
+#define CUDNN_MINOR 2
+#define CUDNN_PATCHLEVEL 1
+Это означает версию 8.2.1
+
+3. Сохрани скачанный файл, где тебе удобно. Распакуй, как сказано в инструкции.
+4. Добавь в ./home/bashrc путь до TensorRT-8.0.0.3/lib в переменную LD_LIBRARY_PATH (смотри выше пример)
+5. Открой PyCharm. Создай новый проект. В своем виртуальном окружении установи все пакеты из инструкции (из папки python, и др.)
+6. Правой кнопкой по скрипту с кодом - Modify Run Configuration..., Environment variables. Щелкни на листочек, добавь переменную LD_LIBRARY_PATH и значение - путь до TensorRT-8.0.0.3/lib
+
+Готово!
