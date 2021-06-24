@@ -88,7 +88,7 @@ def main():
 
     model_type = 'inception_v4'
     b_epoch = 10
-    # train(model_type, num_classes, device, train_loader, val_loader, no_epochs=b_epoch)
+    train(model_type, num_classes, device, train_loader, val_loader, no_epochs=b_epoch)
 
     model_test, taken_pytorch, acc_pytorch = pytorch_test(model_type=model_type, num_classes=num_classes,
                                                           device=device, test_loader=test_loader, b_epoch=b_epoch)
@@ -278,6 +278,7 @@ def build_engine(TRT_LOGGER, onnx_path, shape, MAX_BATCH=100):
         builder.fp16_mode = True
         builder.max_workspace_size = 1 << 30  # 1GB
         builder.max_batch_size = MAX_BATCH
+
 
         profile = builder.create_optimization_profile()
         config.max_workspace_size = (3072 << 20)
