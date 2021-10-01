@@ -1,8 +1,8 @@
 Чтобы завести TensorRT в PyCharm надо:
 ! В версии 8 какая-то ошибка была. Используй 7.2.3.4.
 
-1. Смотри в эту инструкцию: https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html
-Тебя интересует блок с установкой через whl
+1. Смотри в эту инструкцию: https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing-tar
+Тебя интересует блок с установкой через tar
 
 2. Скачай нужную тебе версию TensorRT. Версию CUDA смотри nvcc --version.
 Если nvcc --version ничего не показывает иди в ./home/bashrc
